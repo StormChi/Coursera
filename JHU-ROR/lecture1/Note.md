@@ -18,6 +18,7 @@ end
 
 ```
 #unless is basically if something is not equal to something else
+
 a = 5
 unless a == 6
   puts "a is not 6"
@@ -50,17 +51,21 @@ end
 ## Modifier Form
 ```
 # if modifier form
+
 a = 5
 b = 0
 
 puts "One liner" if a == 5 and b == 0
+
 # => One liner
 ```
 ```
 # while modifier form
+
 times_2 = 2
 times_2 *= 2 while times_2 < 100
 puts times_2 
+
 # => 128
 ```
 ## True/False
@@ -68,3 +73,63 @@ puts times_2
 
 
 **Everything else** is true!
+
+## Triple Equal
+```
+if /sera/ === "coursera"
+  puts "Triple Equals"
+end
+
+# => Triple Equals
+
+if "coursera" == "coursera"
+  puts "also works"
+end
+
+# => also works
+
+if Integer === 21
+  puts "21 is an Ingeger"
+end
+
+# => 21 is an Integer
+```
+
+## Case Expressions
+```
+age = 21
+
+case # 1ST FLAVOR
+  when age >= 21
+    puts "You can buy a drink"
+  when 1 == 0
+    puts "Written by a drunk programmer"
+  else
+    puts "default condition"
+end
+
+# => You can buy a drink
+```
+```
+name = 'Fisher'
+case name # 2nd FLAVOR
+  when /fish/i then puts "Something is fishy here"
+  when 'Smith' then puts "Your name is Smith"
+end
+
+# => Something is fishy here
+```
+
+## For loop
+```
+# Hardly used
+
+for i in 0..2
+  puts i
+end
+
+# => 0
+# => 1
+# => 2
+```
+
