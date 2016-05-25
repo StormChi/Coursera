@@ -297,6 +297,48 @@ Third
 
 ["Third"]
 
-### 
+### Reading from Non Existing File
+``` Ruby
+File.foreach ( 'do_not_exist.txt' ) do |line|
+  puts line.chomp
+end
+
+# Error
+```
+### Handling Exceptions
+``` Ruby
+begin
+
+  File.foreach( 'do_not_exist.txt' ) do |line|
+    puts line.chomp
+  end
+
+rescue Exception => e 
+  puts e.message
+  puts "Let's pretend this didn't happen..."
+end
+```
+
+### Alternative to Exceptions 
+``` Ruby
+if File.exist? 'test.txt'
+  File.foreach( 'test.txt' ) do |line|
+    puts line.chomp
+  end
+end
+```
+
+### Writing to File
+```Ruby
+File.open("test1.txt", "w") do |file|
+  file.puts "One line"
+  file.puts "Another"
+end
+```
+#### test1.txt
+One line
+
+Another
+
 
  
