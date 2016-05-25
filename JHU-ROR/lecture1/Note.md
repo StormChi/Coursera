@@ -15,8 +15,9 @@ end
 
 # => a is 5
 ```
-unless is basically if something is not equal to something else
+
 ```
+#unless is basically if something is not equal to something else
 a = 5
 unless a == 6
   puts "a is not 6"
