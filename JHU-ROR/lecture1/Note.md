@@ -50,7 +50,7 @@ end
 # => 9
 ```
 
-## Modifier Form
+### Modifier Form
 ```Ruby
 # if modifier form
 
@@ -71,13 +71,13 @@ puts times_2
 
 # => 128
 ```
-## True/False
+### True/False
 `false` and `nil` objects are false
 
 
 **Everything else** is true!
 
-## Triple Equal
+### Triple Equal
 ```Ruby
 if /sera/ === "coursera"
   puts "Triple Equals"
@@ -98,7 +98,7 @@ end
 # => 21 is an Integer
 ```
 
-## Case Expressions
+### Case Expressions
 ```Ruby
 age = 21
 
@@ -124,7 +124,7 @@ end
 # => Something is fishy here
 ```
 
-## For loop
+### For loop
 ```Ruby
 # Hardly used
 
@@ -136,6 +136,7 @@ end
 # => 1
 # => 2
 ```
+
 # Functions
 
 ### Methods
@@ -165,4 +166,50 @@ end
 
 puts add(2, 2)       # => 4
 puts divide(2, 0)    # => I don't think so
-puts divide(12, 4)   # => 3  
+puts divide(12, 4)   # => 3
+```
+### Expressive Method Names
+Method names can end with:
+- '?' - Predicate methods
+- '!' - Dangerous side-effects
+``` Ruby
+def can_divide_by?(number)
+  return false if number.zero?
+  true
+end
+
+puts can_divide_by? 3    # => true
+puts can_divide_by? 0    # => false
+```
+
+### Default Arguments
+－ Ternary operator: condition ? true: false
+``` Ruby
+def factorial(n)
+  n == 0? 1 : n * factorial(n - 1)
+end
+
+def factorial_with_dafault(n = 5)
+  n == 0? 1 : n * factorial_with_dafault(n - 1)
+end
+
+puts factorial 5                   # => 120
+puts factorial_with_dafault        # => 120
+puts factorial_with_dafault(3)     # => 6
+```
+
+### Splat
+
+```Ruby
+def max(one_param, *numbers, another)
+  # Variable length parameters passed in
+  # become an array
+  numbers.max
+end
+
+puts max("something", 7, 32, -4, "more")  # => 32
+```  
+
+# Blocks
+
+ 
