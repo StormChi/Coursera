@@ -72,10 +72,10 @@ puts times_2
 # => 128
 ```
 ### True/False
-`false` and `nil` objects are false
+－ `false` and `nil` objects are false
 
 
-**Everything else** is true!
+－ **Everything else** is true!
 
 ### Triple Equal
 ```Ruby
@@ -211,5 +211,92 @@ puts max("something", 7, 32, -4, "more")  # => 32
 ```  
 
 # Blocks
+```Ruby
+1.times { puts "Hello World!" }
+
+# => Hello World!
+
+2.times do |index|
+  if index > 0
+    puts index
+  end
+end
+
+# => 1
+
+2.times { |index| puts index if index > 0 }
+
+# => 1
+```
+### Implicit
+``` Ruby
+def two_times_implicit
+  return "No block" unless block_given?   # if a block is not given, you either going to return
+  yield
+  yield
+end
+
+puts two_times_implicit { print "Hello " }    # => Hello
+                                              # => Hello
+                                              
+puts two_times_implicit                       # => No block
+```                                          
+### Explicit
+```Ruby
+def two_times_implicit(&i_am_a_block)
+  return "No block" if i_am_a_block.nil?
+  i_am_a_block.call 
+  i_am_a_block.call 
+end
+
+puts two_times_implicit   # => No block
+two_times_implicit { puts "Hello" }   # => Hello
+                                      # => Hello
+```
+# Files
+
+### Reading from File
+``` Ruby
+File.foreach( 'test.txt' ) do |line|
+  puts line
+  p line
+  p line.chomp     # chops off newline character
+  p line.split     # array of words in line
+end
+```
+####test.txt
+
+The first line of the file
+
+And the second
+
+Third
+
+#### output
+The first line of the file
+
+"The first line of the file\n"
+
+"The first line of the file"
+
+["The", "first", "line", "of", "the", "file"]
+
+And the second
+
+"And the second\n"
+
+"And the second"
+
+["And", "the", "second"]
+
+Third
+
+"Third"
+
+"Third"
+
+["Third"]
+
+### 
 
  
