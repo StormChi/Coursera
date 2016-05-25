@@ -1,5 +1,7 @@
 # Ruby Basics
-`3.times { puts "Hello World"}`
+```Ruby 
+3.times { puts "Hello World"}
+```
 
 # Flow of Control
 ``` Ruby
@@ -16,7 +18,7 @@ end
 # => a is 5
 ```
 
-```
+``` Ruby
 #unless is basically if something is not equal to something else
 
 a = 5
@@ -27,7 +29,7 @@ end
 # => a is not 6
 ```
 
-```
+```Ruby
 a = 10
 while a > 9
   puts a 
@@ -38,7 +40,7 @@ end
 # => 10
 ```
 
-```
+```Ruby
 a = 9
 until a >= 10
   puts a 
@@ -49,7 +51,7 @@ end
 ```
 
 ## Modifier Form
-```
+```Ruby
 # if modifier form
 
 a = 5
@@ -59,7 +61,8 @@ puts "One liner" if a == 5 and b == 0
 
 # => One liner
 ```
-```
+
+```Ruby
 # while modifier form
 
 times_2 = 2
@@ -75,7 +78,7 @@ puts times_2
 **Everything else** is true!
 
 ## Triple Equal
-```
+```Ruby
 if /sera/ === "coursera"
   puts "Triple Equals"
 end
@@ -96,7 +99,7 @@ end
 ```
 
 ## Case Expressions
-```
+```Ruby
 age = 21
 
 case # 1ST FLAVOR
@@ -110,7 +113,8 @@ end
 
 # => You can buy a drink
 ```
-```
+
+```Ruby
 name = 'Fisher'
 case name # 2nd FLAVOR
   when /fish/i then puts "Something is fishy here"
@@ -121,7 +125,7 @@ end
 ```
 
 ## For loop
-```
+```Ruby
 # Hardly used
 
 for i in 0..2
@@ -135,7 +139,7 @@ end
 # Functions
 
 ### Methods
-```
+```Ruby
 def simple
   puts "no parens"
 end
@@ -149,7 +153,7 @@ simple   # => no parens
 simple1  # => yes parens
 ```
 ### Return
-```
+```Ruby
 def add(one, two)
   one + two
 end
