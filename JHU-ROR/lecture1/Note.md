@@ -462,6 +462,7 @@ end
 # => Key: color value: red
 # => Key: background value: Blue
 ```
+### Hashes
 ``` Ruby
 word_frequency = Hash.new(0)
 
@@ -472,6 +473,7 @@ end
 
 p word_frequency       # => {"chickda" => 2, "boom" => 2}
 ```
+### Hashes
 ``` Ruby
 family_tree_19 = {oldest: "Jim", older: "Joe", younger: "Jack"}
 family_tree_19[:youngest] = "Jeremy"
