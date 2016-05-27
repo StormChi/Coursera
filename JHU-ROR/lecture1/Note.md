@@ -184,7 +184,7 @@ puts can_divide_by? 0    # => false
 ```
 
 ### Default Arguments
-－ Ternary operator: condition ? true: false
+- Ternary operator: condition ? true: false
 ``` Ruby
 def factorial(n)
   n == 0? 1 : n * factorial(n - 1)
