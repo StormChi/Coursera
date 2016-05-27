@@ -4,6 +4,7 @@
 ```
 
 # Flow of Control
+### if, unless, elsif, else
 ``` Ruby
 a = 5 # declare a variable
 
@@ -28,7 +29,7 @@ end
 
 # => a is not 6
 ```
-
+### while, until
 ```Ruby
 a = 10
 while a > 9
@@ -376,6 +377,7 @@ end
 # => Grab your umbrellas
 ```
 # Arrays
+### Arrays
 ``` Ruby
 het_arr = [1, "two", :three]                       # heterogeneous types
 puts het_arr[1]                                    # => two (array indices start at 0)
@@ -391,6 +393,7 @@ p arr_words[2..4]                                  # => ["great", "day", "today"
 # Make a String out of array elements separated by ','
 puts arr_words.join(',')                           # => what,a,great,day,today!
 ```
+### Arrays
 ``` Ruby
 # You want a stack (LIFO)? Sure
 stack = []; stack << "one"; stack.push("two")
@@ -407,6 +410,7 @@ p a.sample(2)                                   # => 2 random elements
 a[6] = 33
 p a                                             # => [5, 4, 3, 2, nil, nil, 33]
 ```
+### Array Processing
 ``` Ruby
 a = [1, 3, 4, 7, 8, 10]
 a.each { |num| print num }            # => 1347810 (no new line)
