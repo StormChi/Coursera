@@ -340,5 +340,176 @@ One line
 
 Another
 
+# Strings
+### Strings / Interpolation
+``` Ruby
+single_quoted = 'ice cream \n followed by it\'s a party!'
+double_quoted = "ice cream \n followed by it\'s a party!"
+
+puts single_quoted            # => ice cream \n followed by it's a party!
+puts double_quoted            # => ice cream
+                              # =>   followed by it's a party!
+                              
+def multiple(one, two)
+  "#{one} numtiplied by #{two} equals #{one * two}"      # Interpolation(only available for double-quoted strings)
+end
+puts multiply(5, 3)
+# 5 multiplied by 3 equals 15
+```
+### More Strings
+``` Ruby
+my_name = " tim"
+puts my_name.lstrip.capitalize         # => Tim
+p my_name                              # => " tim"
+my_name.lstrip!                        # (destructive) removes the leading space
+my_name[0] = 'K'                       # replace the first character
+puts my_name                           # => Kim
+
+cur_weather = %Q{It's a hot day outside Grab your umbrellas...}
+
+cur_weather.lines do |line|
+  line.sub! 'hot', 'rainy'             # substitute 'hot' with 'rainy'
+  puts "#{line.strip}"
+end
+
+# => It's a rainy day outside
+# => Grab your umbrellas
+```
+# Arrays
+``` Ruby
+het_arr = [1, "two", :three]                       # heterogeneous types
+puts het_arr[1]                                    # => two (array indices start at 0)
+
+arr_words = %w{ what a great day today! }
+puts arr_words[-2]                                 # => day
+puts "#{arr_words.first} - #{arr_words.last}"      # => what -today!
+p arr_words[-3, 2]                                 # => ["great", "day"] (go back 3 and take 2)
+
+# (Range type covered later...)
+p arr_words[2..4]                                  # => ["great", "day", "today"]
+
+# Make a String out of array elements separated by ','
+puts arr_words.join(',')                           # => what,a,great,day,today!
+```
+``` Ruby
+# You want a stack (LIFO)? Sure
+stack = []; stack << "one"; stack.push("two")
+puts stack.pop                                  # => two
+
+# You need a queue (FIFO)? We have those too...
+queue = []; queue.push "one"; queue.push "two"
+puts queue.shift                                # => one
+
+a = [5,3,4,2].sort!.reverse!
+p a # =>[5,4,3,2] (actually modifies the array)
+p a.sample(2)                                   # => 2 random elements
+
+a[6] = 33
+p a                                             # => [5, 4, 3, 2, nil, nil, 33]
+```
+``` Ruby
+a = [1, 3, 4, 7, 8, 10]
+a.each { |num| print num }            # => 1347810 (no new line)
+puts                                  # => (print new line)
+
+new_arr = a.select { |num| num > 4 }
+p new_arr                             # => [7, 8, 10]
+new_arr = a.select { |num| num < 10 }
+           .reject { |num| num.even? }
+
+p new_arr                             # => [1, 3, 7]
+
+# Multiple each element by 3 producing new array
+new_arr = a.map {|x| x * 3}
+p new_arr                             # => [3, 9, 12, 21, 24, 30]
+```
+# Ranges
+```Ruby
+some_range = 1..3
+puts some_range.max                   # => 3
+puts some_range.include? 2            # => true
+
+puts (1...10) === 5.3                 # => true           Interesting. i miss a space like this puts(1...10) === 5.3, the output is false.
+puts ('a'...'r') === "r"              # => false (end-exclusive)
+
+p ('k'..'z').to_a.sample(2)           # => ["k", "w"]
+# or another random array with 2 letters in Range
+
+age = 55
+case age
+  when 0..12 then puts "Still a baby"
+  when 13..99 then puts "Teenager at heart!"
+  else puts "You are getting older..."
+end
+# => Teenager at heart!
+```
+# Hashes
+```Ruby
+editor_props = { "font" => "Arial", "size" => 12, "color" => "red" }
+
+# THE ABOVE IS NOT A BLOCK - IT'S A HASH 
+puts editor_props.length                         # => 3
+puts editor_props["font"]                        # => Arial
+
+editor_props["background"] = "Blue"
+editor_props.each_pair do |key, value|
+  puts "key: #{key} value: #{value}"
+end
+
+# => Key: font value: Arial
+# => Key: size value: 12
+# => Key: color value: red
+# => Key: background value: Blue
+```
+``` Ruby
+word_frequency = Hash.new(0)
+
+sentence = "Chicka chicka boom boom"
+sentence.split.each do |word|
+  word_frequency[word.downcase] += 1
+end
+
+p word_frequency       # => {"chickda" => 2, "boom" => 2}
+```
+``` Ruby
+family_tree_19 = {oldest: "Jim", older: "Joe", younger: "Jack"}
+family_tree_19[:youngest] = "Jeremy"
+p family_tree_19
+# => {:oldest=>"Jim", :older=>"Joe", :younger=>"Jack", :youngest => "Jeremy" }
+
+# Named parameter "like" behavior...
+def adjust_colors (props = {foreground: "red", background: "white"])
+  puts "Foreground: #{props[:foreground]}" if props[:foreground]
+  puts "Background: #{props[:background]}" if props[:background]
+end
+adjust_colors        # => foreground: red
+                     # => background: white 
+adjust_colors ({ :foreground => "green" })        # => foreground: green      
+adjust_colors background: "yella"                 # => background: yella      Use this one style.
+adjust_colors :background => "magenta"            # => background: magenta    
+```
+``` Ruby
+# Lets say you have a Hash
+a_hash = { :one => "one" }
+
+# Then, you output it
+puts a_hash              # => {:one => "one"}
+
+# If you try to do it in one step - you get a SyntaxError
+# puts { :one => "one" }
+
+# RUBY GETS CONFUSED AND THINKS {} IS A BLOCK!!!
+
+# To get around this - you can use parens
+puts ({ :one => "one" })    # => {:one => "one"}
+
+# Or drop the {} altogether...
+puts one: "one" # => {:one=>"one"}
+```
+
+
+
+
+
 
  
