@@ -444,6 +444,7 @@ end
 # => Teenager at heart!
 ```
 # Hashes
+### Hashes
 ```Ruby
 editor_props = { "font" => "Arial", "size" => 12, "color" => "red" }
 
@@ -488,6 +489,8 @@ adjust_colors ({ :foreground => "green" })        # => foreground: green
 adjust_colors background: "yella"                 # => background: yella      Use this one style.
 adjust_colors :background => "magenta"            # => background: magenta    
 ```
+
+### Block and Hash Confusion
 ``` Ruby
 # Lets say you have a Hash
 a_hash = { :one => "one" }
