@@ -418,6 +418,7 @@ puts                                  # => (print new line)
 
 new_arr = a.select { |num| num > 4 }
 p new_arr                             # => [7, 8, 10]
+
 new_arr = a.select { |num| num < 10 }
            .reject { |num| num.even? }
 
