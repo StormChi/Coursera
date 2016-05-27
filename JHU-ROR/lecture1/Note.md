@@ -73,10 +73,10 @@ puts times_2
 # => 128
 ```
 ### True/False
-－ `false` and `nil` objects are false
+- `false` and `nil` objects are false
 
 
-－ **Everything else** is true!
+- **Everything else** is true!
 
 ### Triple Equal
 ```Ruby
